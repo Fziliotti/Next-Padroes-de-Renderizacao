@@ -1,11 +1,9 @@
-  import Head from 'next/head'
-  import Image from 'next/image'
+import Head from 'next/head'
 import Link from 'next/link'
-  import { useEffect, useState } from 'react'
-  import { api } from '../services/api'
-  import styles from '../styles/Home.module.css'
+import { api } from '../services/api'
+import styles from '../styles/Home.module.css'
 
-  const TIPO_DE_RENDERIZACAO = "SSR"
+const TIPO_DE_RENDERIZACAO = "SSR"
 
 export async function getServerSideProps() {
     const {data} = await api.get('/books')

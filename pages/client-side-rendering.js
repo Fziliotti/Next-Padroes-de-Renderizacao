@@ -1,6 +1,5 @@
   import Head from 'next/head'
-  import Image from 'next/image'
-import Link from 'next/link'
+  import Link from 'next/link'
   import { useEffect, useState } from 'react'
   import { api } from '../services/api'
   import styles from '../styles/Home.module.css'
@@ -12,8 +11,8 @@ import Link from 'next/link'
 
     useEffect(() => {
       async function fetchData() {
-        const {data} = await api.get('/books')
-        setBooks(data.results)
+        const {data} = await api.get('/books');
+        setBooks(data.results);
       }
       fetchData();
     }, []); 
@@ -28,7 +27,7 @@ import Link from 'next/link'
         </Head>
 
         <Link href={"/"}>
-            <a className={styles.initialPageLink}>
+            <a className={initialPageLink}>
                 Página Inicial
             </a>
         </Link>
