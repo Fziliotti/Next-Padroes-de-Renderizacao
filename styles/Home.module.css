@@ -1,5 +1,14 @@
 .container {
   padding: 0 2rem;
+} 
+
+.initialPageLink {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+   text-decoration: underline;
+  color: blue;
+  
 }
 
 .main {
@@ -70,11 +79,12 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .card {
   margin: 1rem;
+  /* height: 400px; */
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -94,12 +104,12 @@
 
 .card h2 {
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .card p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
