@@ -1,8 +1,10 @@
   import Head from 'next/head'
   import Link from 'next/link'
   import { useEffect, useState } from 'react'
-  import { api } from '../services/api'
-  import styles from '../styles/Home.module.css'
+  import { api } from '../../services/api'
+  import styles from '../../styles/Home.module.css'
+  import {useWebVitals} from '../../hooks/useWebVitals'
+
 
   const TIPO_DE_RENDERIZACAO = "CSR"
 
@@ -17,6 +19,8 @@
       fetchData();
     }, []); 
 
+    const {getMetrics}= useWebVitals()
+
 
     return (
       <div className={styles.container}>
@@ -27,7 +31,7 @@
         </Head>
 
         <Link href={"/"}>
-            <a className={initialPageLink}>
+            <a className={styles.initialPageLink}>
                 Página Inicial
             </a>
         </Link>
@@ -49,7 +53,7 @@
           <div className={styles.grid}>
             {books ? books.map(book => {
               return (
-                <a href="https://nextjs.org/docs" className={styles.card}>
+                <a key={book.id} href="https://nextjs.org/docs" className={styles.card}>
                   <h2>{book.title}</h2>
                   <img src={book.formats["image/jpeg"]} alt={book.title}/>
                   <p>{book.authors.map(author => author.name ).join(' ')}</p>
@@ -62,6 +66,8 @@
 
         <footer className={styles.footer}>
           Pattern - {TIPO_DE_RENDERIZACAO}
+
+          <button type="" onClick={() => getMetrics()}>Métricas</button>
         </footer>
       </div>
     )

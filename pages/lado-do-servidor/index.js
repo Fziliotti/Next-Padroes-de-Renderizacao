@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { api } from '../services/api'
-import styles from '../styles/Home.module.css'
+import { api } from '../../services/api'
+import styles from '../../styles/Home.module.css'
+import {useWebVitals} from '../../hooks/useWebVitals'
 
 const TIPO_DE_RENDERIZACAO = "SSR"
 
@@ -15,6 +16,10 @@ export async function getServerSideProps() {
 }
 
   export default function Home({books}) {
+
+    const webVitals= useWebVitals()
+
+
     return (
       <div className={styles.container}>
         <Head>
@@ -45,7 +50,7 @@ export async function getServerSideProps() {
           <div className={styles.grid}>
             {books.map(book => {
               return (
-                <a href="https://nextjs.org/docs" className={styles.card}>
+                <a key={book.id} href="https://nextjs.org/docs" className={styles.card}>
                   <h2>{book.title}</h2>
                   <img src={book.formats["image/jpeg"]} alt={book.title}/>
                   <p>{book.authors.map(author => author.name ).join(' ')}</p>

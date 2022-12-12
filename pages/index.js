@@ -21,14 +21,14 @@
           </p>
 
           <div className={styles.grid}>
-            <Link href="/client-side-rendering">
+            <Link href="/lado-do-cliente">
               <a className={styles.card}>
               <h2>CSR &rarr;</h2>
               <p>Exemplo de Client Side Rendering ou Renderização no lado do cliente.</p>
               </a>
             </Link>
 
-            <Link href="/server-side-rendering"    >
+            <Link href="/lado-do-servidor"    >
               <a className={styles.card}>
                 <h2>SSR &rarr;</h2>
                 <p>Exemplo de Server Side Rendering ou Renderização no lado do servidor.</p>
@@ -36,7 +36,7 @@
             </Link>
 
             <Link
-              href="/static-generation"
+              href="/geracao-estatica"
             >
               <a className={styles.card}>
                 <h2>SSG &rarr;</h2>
