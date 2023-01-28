@@ -1,23 +1,21 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { api } from '../../services/api'
+import bookData from '../api/data.json' 
 import styles from '../../styles/Home.module.css'
-import {useWebVitals} from '../../hooks/useWebVitals'
 
 const TIPO_DE_RENDERIZACAO = "SSG"
 
 export async function getStaticProps() {
-    const {data} = await api.get('/books')
+    // const {data} = await api.get('/books')
     return {
         props: {
-            books: data.results,
+            books: bookData,
         },
     }
 }
 
   export default function Home({books}) {
 
-    const webVitals= useWebVitals()
 
     return (
       <div className={styles.container}>
@@ -48,7 +46,7 @@ export async function getStaticProps() {
 
 
           <div className={styles.grid}>
-            {books.map(book => {
+            {books.length > 0 ? books.map(book => {
               return (
                 <a key={book.id} href="https://nextjs.org/docs" className={styles.card}>
                   <h2>{book.title}</h2>
@@ -56,7 +54,7 @@ export async function getStaticProps() {
                   <p>{book.authors.map(author => author.name ).join(' ')}</p>
                 </a>
               )
-            })}
+            }): null}
             
           </div>
         </main>
