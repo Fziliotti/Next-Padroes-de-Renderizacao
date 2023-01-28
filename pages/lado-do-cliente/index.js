@@ -14,6 +14,7 @@
     useEffect(() => {
       async function fetchData() {
         const {data} = await api.get('/api/books');
+        console.log(data)
         setBooks(data.results);
       }
       fetchData();
