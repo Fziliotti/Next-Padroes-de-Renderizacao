@@ -13,7 +13,7 @@
 
     useEffect(() => {
       async function fetchData() {
-        const {data} = await api.get('/books');
+        const {data} = await api.get('/api/books');
         setBooks(data.results);
       }
       fetchData();

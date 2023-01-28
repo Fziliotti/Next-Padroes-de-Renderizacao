@@ -9,7 +9,7 @@ export async function getStaticProps() {
     // const {data} = await api.get('/books')
     return {
         props: {
-            books: bookData,
+            books: bookData.results,
         },
     }
 }
